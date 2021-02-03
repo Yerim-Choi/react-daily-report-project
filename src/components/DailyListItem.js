@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone } from 'react-icons/md';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { useTodoDispatch } from '../TodoContext';
 
 const Remove = styled.div`
   display: flex;
@@ -59,15 +60,21 @@ const Text = styled.div`
 `;
 
 function DailyListItem({ id, done, text }) {
+  const dispatch = useTodoDispatch();
+  const onToggle = () => dispatch({ type: 'TOGGLE', id });
+  const onRemove = () => dispatch({ type: 'REMOVE', id });
+
   return (
     <DailyListItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={onToggle}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
-      <Remove>
+      <Remove onClick={onRemove}>
         <RiDeleteBack2Fill />
       </Remove>
     </DailyListItemBlock>
   );
 }
 
-export default DailyListItem;
+export default React.memo(DailyListItem);

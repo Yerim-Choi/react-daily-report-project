@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import DailyListItem from './DailyListItem';
 import DailyToDoCreate from './DailyToDoCreate';
+//아래 추가
+import { useTodoState } from '../TodoContext';
+
 
 const DailyListBlock = styled.div`
   flex: 1;
@@ -17,13 +20,18 @@ const DailyListBlock = styled.div`
 `;
 
 function DailyList() {
+  const todos = useTodoState();
   return (
     <DailyListBlock>
         <h1>| To Do List</h1>
-        <DailyListItem text="프로젝트 생성하기" done={true} />
-        <DailyListItem text="컴포넌트 스타일링 하기" done={true} />
-        <DailyListItem text="Context 만들기" done={false} />
-        <DailyListItem text="기능 구현하기" done={false} />
+        {todos.map(todo => (
+        <DailyListItem
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          done={todo.done}
+        />
+      ))}
         <DailyToDoCreate />
     </DailyListBlock>
     

@@ -4,6 +4,7 @@ import DailyTemplate from './components/DailyTemplate'
 import DailyHead from './components/DailyHead';
 import DailyList from './components/DailyList';
 import DailyCost from './components/DailyCost';
+import { TodoProvider } from './TodoContext';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,15 +14,14 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+  <TodoProvider>
       <GlobalStyle />
       <DailyTemplate>
         <DailyHead />
         <DailyList />
         <DailyCost />
-        
       </DailyTemplate>
-    </>
+    </TodoProvider >
   );
 }
 
