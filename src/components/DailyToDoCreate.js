@@ -63,7 +63,7 @@ const Input = styled.input`
   box-sizing: border-box;
 `;
 
-function DailyCreate() {
+function DailyToDoCreate() {
   const [open, setOpen] = useState(false);
 
   const onToggle = () => setOpen(!open);
@@ -84,4 +84,4 @@ function DailyCreate() {
   );
 }
 
-export default DailyCreate;
+export default DailyToDoCreate;

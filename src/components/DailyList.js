@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import DailyCreate from './DailyCreate';
 import DailyListItem from './DailyListItem';
+import DailyToDoCreate from './DailyToDoCreate';
 
 const DailyListBlock = styled.div`
   flex: 1;
@@ -24,7 +24,7 @@ function DailyList() {
         <DailyListItem text="컴포넌트 스타일링 하기" done={true} />
         <DailyListItem text="Context 만들기" done={false} />
         <DailyListItem text="기능 구현하기" done={false} />
-        <DailyCreate />
+        <DailyToDoCreate />
     </DailyListBlock>
     
   )

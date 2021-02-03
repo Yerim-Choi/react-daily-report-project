@@ -4,7 +4,6 @@ import DailyTemplate from './components/DailyTemplate'
 import DailyHead from './components/DailyHead';
 import DailyList from './components/DailyList';
 import DailyCost from './components/DailyCost';
-import DailyCreate from './components/DailyCreate';
 
 const GlobalStyle = createGlobalStyle`
   body {
