@@ -12,7 +12,7 @@
     </tr>
     <tr>
         <th>프로젝트 성격</th>
-        <th>React와 Redux를 활용한 웹사이트</th>
+        <th>React와 Context API를 활용한 웹사이트</th>
         <th>개발인원</th>
         <th>개인 / 1명<br>
             <a href="https://github.com/Yerim-Choi">최예림</a> 
