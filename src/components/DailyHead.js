@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BiSmile } from 'react-icons/bi';
 import { useTodoState } from '../TodoContext';
+import { useCostState } from '../CostContext';
 
 
 
@@ -13,13 +14,15 @@ const DailyHeadBlock = styled.div`
   border-bottom: 1px solid #e9ecef;
   h1 {
     margin: 0;
-    font-size: 34px;
+    font-size: 32px;
     color: #364149;
+    text-align:right;
   }
   .day {
-    margin-top: 4px;
+    text-align:right;
+    margin-top: 10px;
     color: #868e96;
-    font-size: 21px;
+    font-size: 18px;
   }
   .tasks-left {
     color: #b2b2b2;
@@ -35,8 +38,16 @@ const DailyHeadBlock = styled.div`
 `;
 
 function DailyHead() {
+  //할일 가져오기
   const todos = useTodoState();
   const doneTasks = todos.filter(todo => todo.done);
+
+  //지출내역 가져오기
+  const costs = useCostState();
+  let sumCost = 0;
+  costs.forEach((item) => {
+    sumCost += Number(item.money);
+  })
 
   //오늘 날짜 가져오기
   const today = new Date();
@@ -51,7 +62,7 @@ function DailyHead() {
     <DailyHeadBlock>
       <h1>{dateString}</h1>
       <div className="day">{dayName}</div>
-      <div className="tasks-left">오늘 해야 할 일 <div className="tasks-left-color"> {doneTasks.length}개 </div> 달성!<br />지출은 <div className="tasks-left-color"> 27000원 </div> 이 있었습니다 <BiSmile /></div>
+      <div className="tasks-left">오늘 해야 할 일 <div className="tasks-left-color"> {doneTasks.length}개 </div> 달성!<br />지출은 <div className="tasks-left-color"> {sumCost}원 </div> 이 있었습니다 <BiSmile /></div>
     </DailyHeadBlock>
   );
 }

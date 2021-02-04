@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import DailyCostCreate from './DailyCostCreate';
 import DailyCostItem from './DailyCostItem';
+import { useCostState } from '../CostContext';
+
 
 const DailyCostBlock = styled.div`
   flex: 1;
@@ -21,13 +23,19 @@ RiMoneyDollarCircleFill {
 `;
 
 function DailyCost() {
+  const costs = useCostState();
   return (
     <DailyCostBlock>
-        <h1>Expenses List</h1>
-        <DailyCostItem text="프로젝트 생성하기" done={true} />
-        <DailyCostItem text="컴포넌트 스타일링 하기" done={true} />
-        <DailyCostItem text="Context 만들기" done={false} />
-        <DailyCostItem text="기능 구현하기" done={false} />
+        <h1>| Expenses List</h1>
+        {costs.map(cost => (
+        <DailyCostItem
+          key={cost.id}
+          id={cost.id}
+          text={cost.text}
+          done={cost.done}
+          money={cost.money}
+        />
+      ))}
         <DailyCostCreate />
     </DailyCostBlock>
   )

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
+import { useCostDispatch, useCostNextId } from '../CostContext';
 
 const CircleButton = styled.button`
   background: #6182ff;
@@ -48,15 +49,15 @@ const InsertForm = styled.form`
   background: #f8f9fa;
   padding-left: 32px;
   padding-top: 10px;
-  padding-right: 32px;
+  padding-right: 90px;
   padding-bottom: 10px;
   border-top: 1px solid #e9ecef;
+  display: inline-block;
 `;
 
 const Input = styled.input`
   padding: 12px;
   border: 1px solid #dee2e6;
-  width: 60%;
   outline: none;
   font-size: 16px;
   box-sizing: border-box;
@@ -64,16 +65,44 @@ const Input = styled.input`
 
 function DailyCostCreate() {
   const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('');
+  const [moneyValue, setMoneyValue] = useState('');
+
+  const dispatch = useCostDispatch();
+  const nextId = useCostNextId();
 
   const onToggle = () => setOpen(!open);
+  const onChange = e => setValue(e.target.value);
+  const onMoneyChange = e => setMoneyValue(e.target.value);
+
+  const onSubmit = e => {
+    e.preventDefault(); // 새로고침 방지
+    dispatch({
+      type: 'CREATE',
+      todo: {
+        id: nextId.current,
+        text: value,
+        money: moneyValue,
+        done: false
+      }
+    });
+    setValue('');
+    setOpen(false);
+    nextId.current += 1;
+  };
+
 
   return (
     <>
       {open && (
         <InsertFormPositioner>
-          <InsertForm>
-            <Input style={{ width: '100px', marginRight:'5px' }} autoFocus placeholder="0원" />
-            <Input autoFocus placeholder="지출 내역 입력 후, Enter를 누르세요" />
+          <InsertForm style={{ paddingRight: '15px'  }} onSubmit={onSubmit}>
+            <Input style={{ width: '90px' }} autoFocus placeholder="0원" type="number" onChange={onMoneyChange} value={moneyValue} />
+            {/* <Input placeholder="지출 내역 입력 후, Enter를 누르세요" onChange={onChange} value={value} /> */}
+            </InsertForm>
+            <InsertForm style={{ paddingLeft: '0', paddingRight: '133px' }} onSubmit={onSubmit}>
+            {/* <Input style={{ width: '100px', marginRight:'5px' }} autoFocus placeholder="0원" type="number" onChange={onMoneyChange} value={moneyValue} /> */}
+            <Input style={{ width: '280px' }} placeholder="내역 입력 후, Enter를 누르세요" onChange={onChange} value={value} />
           </InsertForm>
         </InsertFormPositioner>
       )}
@@ -84,4 +113,4 @@ function DailyCostCreate() {
   );
 }
 
-export default DailyCostCreate;
+export default React.memo(DailyCostCreate)

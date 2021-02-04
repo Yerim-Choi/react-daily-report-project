@@ -106,4 +106,4 @@ function DailyToDoCreate() {
   );
 }
 
-export default DailyToDoCreate;
+export default React.memo(DailyToDoCreate);

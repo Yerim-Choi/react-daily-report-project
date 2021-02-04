@@ -5,6 +5,7 @@ import DailyHead from './components/DailyHead';
 import DailyList from './components/DailyList';
 import DailyCost from './components/DailyCost';
 import { TodoProvider } from './TodoContext';
+import { CostProvider } from './CostContext';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
+  <CostProvider>
   <TodoProvider>
       <GlobalStyle />
       <DailyTemplate>
@@ -22,6 +24,7 @@ function App() {
         <DailyCost />
       </DailyTemplate>
     </TodoProvider >
+    </CostProvider>
   );
 }
 

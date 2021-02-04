@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone } from 'react-icons/md';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { useCostDispatch } from '../CostContext';
 
 const Remove = styled.div`
   display: flex;
@@ -42,8 +43,8 @@ const CheckCircle = styled.div`
   ${props =>
     props.done &&
     css`
-      border: 1px solid #6182ff;
-      color: #6182ff;
+      // border: 1px solid #6182ff;
+      // color: #6182ff;
     `}
 `;
 
@@ -54,20 +55,40 @@ const Text = styled.div`
   ${props =>
     props.done &&
     css`
-      color: #ced4da;
+    color: #495057;
     `}
 `;
 
-function DailyCostItem({ id, done, text }) {
+
+const Money = styled.div`
+  // flex: 1;
+  margin-right: 20px;
+  font-size: 18px;
+  color: #ced4da;
+  ${props =>
+    props.done &&
+    css`
+    color: #ced4da;
+    `}
+`;
+
+function DailyCostItem({ id, done, text, money }) {
+  const dispatch = useCostDispatch();
+  const onToggle = () => dispatch({ type: 'TOGGLE', id });
+  const onRemove = () => dispatch({ type: 'REMOVE', id });
+  
   return (
     <DailyListItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
-      <Remove>
+      <Money done={done}>$ {money}</Money>
+      <Remove onClick={onRemove}>
         <RiDeleteBack2Fill />
       </Remove>
     </DailyListItemBlock>
   );
 }
 
-export default DailyCostItem;
+export default React.memo(DailyCostItem);
