@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+## 🐶 데일리 리포트 웹 사이트 프로젝트 입니다. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://user-images.githubusercontent.com/67423172/106917760-ebba5f00-674b-11eb-8daf-4d7569e2e032.jpg"></img>
 
-## Available Scripts
+### 👋 Introduction
+<table>
+    <tr>
+        <th width="20%">프로젝트 명 </th>
+        <th>Petso</th>
+        <th>개발기간</th>
+        <th>2021.02.03. ~ 2021.02.04.</th>
+    </tr>
+    <tr>
+        <th>프로젝트 성격</th>
+        <th>React와 Redux를 활용한 웹사이트</th>
+        <th>개발인원</th>
+        <th>개인 / 1명<br>
+            <a href="https://github.com/Yerim-Choi">최예림</a> 
+        </th>
+    </tr>
+    <tr>
+        <th>프로젝트 개요</th>
+        <th>데일리 리포트</th>
+        <th>개발환경&nbsp;</th>
+        <th>Windows10</th>
+    </tr>
+    <tr>
+        <th colspan="5">사용 도구</th>
+    </tr>
+    <tr>
+        <th>개발언어</th>
+        <th colspan="3">React, JavaScript </th>
+    </tr>
+    <tr>
+        <th>형상관리</th>
+        <th colspan="3">Github, Git , Source Tree</th>
+    </tr>
+    <tr>
+        <th>개발도구</th>
+        <th colspan="3">Visual Studio Code</th>
+    </tr>
+</table>
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 🙋Target user
+<table>
+    <tr>
+        <th>사용자</th>
+        <td>하루의 목표 할 일과 지출 내용 정리</td>
+    </tr>
+</table>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ✨ Functions
+<img src="https://user-images.githubusercontent.com/67423172/106920272-481e7e00-674e-11eb-9d68-f8421f1d7fda.png" width="850px"></img>
+- 기본 화면으로 오늘 하루 완료한 일과 총 사용한 지출을 상단 부분을 통해 확인할 수 있습니다.
 
-### `npm test`
+<img src="https://user-images.githubusercontent.com/67423172/106920317-510f4f80-674e-11eb-9319-238dbeb5d8d0.png" width="850px"></img>
+<img src="https://user-images.githubusercontent.com/67423172/106920320-52407c80-674e-11eb-9da4-35514a83fc78.png" width="850px"></img>
+- 오늘 할 일에 대해 추가 및 삭제를 할 수 있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="https://user-images.githubusercontent.com/67423172/106920395-63898900-674e-11eb-8bc3-ff47d42a0d31.png" width="850px"></img>
+<img src="https://user-images.githubusercontent.com/67423172/106920403-64bab600-674e-11eb-9d3c-d58f039e9f81.png" width="850px"></img>
+- 소비한 내역과 상세 내용에 대해 작성하여 추가 및 삭제를 할 수 있습니다.
